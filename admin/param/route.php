@@ -14,6 +14,8 @@
 
     $page['import'] = 'mod/import/import.php';
 
+    $page['listing_messages'] = 'mod/listing_messages/listing_messages.php';
+
     $page['listing_pays'] = 'mod/listing_pays/listing_pays.php';
 
     $page['listing_ville'] = 'mod/listing_ville/listing_ville.php';
