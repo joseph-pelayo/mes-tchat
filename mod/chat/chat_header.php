@@ -1,16 +1,22 @@
 <?php
 
-    // Etape 1 : Ecriture de la requete SQL
-    // $sql = "SELECT 
-    //                 p.id, 
-    //                 p.data AS data,
-    //                 t.libelle as type_piece,
-    //                 p.message_id as message_id,
-    //                 u.login as user
-    //         FROM piece as p
-    //         LEFT JOIN type_piece as t ON p.type_id = t.id
-    //         LEFT JOIN message as m ON p.type_id = m.id
-    //         LEFT JOIN t_user as u ON m.user_id = u.login;";
+// Ajout d'un message
+// Verifier si on a cliqué sur le bouton envoyer
+if(isset($_POST) && !empty($_POST)){
+    // L'utilisateur a cliqué sur envoyer => Analyser le retour
+    $h_message = array();
+    $h_message['message'] = $_POST['form_nom'];
+    $h_message['date'] = date("Y-m-d H:i:s");
+    $h_message['user_id'] = $_SESSION[SITE_NAME]['id_user'];
+    if(!empty($_POST['form_password']))
+        $h['password'] = md5($_POST['form_password']);
+    $h['adresse'] = $_POST['form_adresse'];
+    $h['code_postal'] = $_POST['form_cp'];
+    $h['fk_ville'] = $_POST['form_ville'];
+    $h['fk_pays'] = $_POST['form_pays'];
+
+}
+// Récupération des messages et pièces jointe associés
 
     $title_page = "Chat";
     $html ="";
@@ -51,12 +57,12 @@
     }
 
     // var_dump($datas);
-    $html.= '<p>'.$datas[0]['user'].'</p>'.PHP_EOL; // 
+    // $html.= '<p>'.$datas[0]['user'].'</p>'.PHP_EOL; // 
     // echo($datas[0]['message']).PHP_EOL;  // 
-    $html.= '<p>'.$datas[0]['message']['id'].'</p>'.PHP_EOL; // 
-    $html.= '<p>'.$datas[0]['message']['text'].'</p>'.PHP_EOL; // 
-    $html.= '<p>'.$datas[0]['message']['date'].'</p>'.PHP_EOL; // 
+    // $html.= '<p>'.$datas[0]['message']['id'].'</p>'.PHP_EOL; // 
+    // $html.= '<p>'.$datas[0]['message']['text'].'</p>'.PHP_EOL; // 
+    // $html.= '<p>'.$datas[0]['message']['date'].'</p>'.PHP_EOL; // 
     // echo ($datas[0]['pieces']).PHP_EOL; // liste pièce jointe
-    $html.= '<p>'.$datas[0]['pieces'][0]['data'].'</p>'.PHP_EOL; 
-    $html.= '<p>'.$datas[0]['pieces'][0]['type'].'</p>'.PHP_EOL; 
+    // $html.= '<p>'.$datas[0]['pieces'][0]['data'].'</p>'.PHP_EOL; 
+    // $html.= '<p>'.$datas[0]['pieces'][0]['type'].'</p>'.PHP_EOL; 
 ?>
