@@ -28,9 +28,9 @@
     $html = '<br/><br/><br/>';
 
     // Ajout d'un lien pour ajouter un message
-    $html.= '<div style="width:60%;text-align:right;margin:auto;margin-bottom:20px;">';
-    $html.= '   <a href="index.php?page=add_user"><img src="pic/interface/add_user.png"></a>';
-    $html.= '</div>';
+    // $html.= '<div style="width:60%;text-align:right;margin:auto;margin-bottom:20px;">';
+    // $html.= '   <a href="index.php?page=add_user"><img src="pic/interface/add_user.png"></a>';
+    // $html.= '</div>';
 
     // Etape 3 : On verifie que la requete est bien executé ET qu'il y a des enregistrements en retour
     if($rs && mysqli_num_rows($rs)){
@@ -65,13 +65,10 @@
             $html.= '       <td class="tab_td">'.$data['salon_nom'].'</td>';
             $html.= '       <td class="tab_td">';
             if($_SESSION[SITE_NAME]['id_user'] != $data['id']) {
-                $html .= '            <a onclick="if(window.confirm(\'Etes vous sur ?\')) return true; else return false;" href="index.php?page=listing_user&id_suppr=' . $data['id'] . '">';
+                $html .= '            <a onclick="if(window.confirm(\'Etes vous sur ?\')) return true; else return false;" href="index.php?page=listing_messages&id_suppr=' . $data['id'] . '">';
                 $html .= '                <img src="pic/interface/suppr.png">';
                 $html .= '            </a>';
             }
-            // $html .= '            <a href="index.php?page=add_user&id=' . $data['id'] . '">';
-            // $html .= '                <img src="pic/interface/edit.png">';
-            // $html .= '            </a>';
             $html.= '        </td>';
 
 
@@ -80,6 +77,5 @@
 
         $html.= '</table>';
     }
-
 
 ?>
