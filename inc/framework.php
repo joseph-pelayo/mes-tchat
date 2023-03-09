@@ -1,6 +1,6 @@
 <?php
     // Parametre général
-    define("SITE_NAME","SP_CDUI_0323");
+    define("SITE_NAME","chat");
 
     // Inclusion BDD
     include 'inc/sql_connect.php';
@@ -11,5 +11,3 @@
     // Inclusion des Classes
     include 'classe/page.class.php';
     include 'classe/image.class.php';
-
-?>
