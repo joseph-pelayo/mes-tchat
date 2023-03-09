@@ -23,6 +23,10 @@ if (isset($_POST) && !empty($_POST)) {
             $_SESSION[SITE_NAME]['nom_user'] = $data['username'];
             $_SESSION[SITE_NAME]['avatar'] = '';
 
+            // Mettre à jour le statut de connexion de l'utilisateur à "En ligne"
+            $sql_update = "UPDATE t_user SET status='En ligne' WHERE id='" . $data['id'] . "';";
+            $rs_update = query($sql_update);
+
             // Redirection
             header("location: index.php");
         } else {
@@ -33,10 +37,11 @@ if (isset($_POST) && !empty($_POST)) {
     }
 }
 
+
 // Creation du formulaire de connexion
 $html = '<div class="container">';
-$html .= '    <form action="index.php?page=login" method="POST">';
-$html .= '       <p>Bienvenue Administrateur</p>';
+$html .= '    <form action="index.php?page=home" method="POST">';
+$html .= '       <p>Bienvenue</p>';
 $html .= '       <input type="text" name="login" id="login" placeholder="Login"/><br>';
 $html .= '       <input type="password" name="password" id="password" placeholder="Password"/><br/>';
 $html .= '       <input type="submit" value="Connexion"><br>';
