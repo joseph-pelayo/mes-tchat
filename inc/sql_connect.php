@@ -1,8 +1,12 @@
 <?php
     $DATABASE = 'chat';
+<<<<<<< HEAD
     $SERVEUR = '192.168.56.3'; // 127.0.0.1
+=======
+    $SERVEUR = '127.0.0.1'; // 127.0.0.1
+>>>>>>> main
     $USER = 'root';
-    $PASS = 'root';             // A mettre a jours sur vos postes !
+    $PASS = '';             // A mettre a jours sur vos postes !
 
     // Message d'erreur
     $die_message_serveur = 'Connexion impossible au serveur';

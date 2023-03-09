@@ -1,4 +1,8 @@
 <?php
+
+    // Set the default timezone used by all date/time functions
+    date_default_timezone_set('Indian/Reunion');
+
     // Gestion et initialisation des erreurs et de l'encodage (UTF8)
     ini_set('session.gc_maxlifetime', 7200);
     ini_set('default_charset', 'utf-8');
