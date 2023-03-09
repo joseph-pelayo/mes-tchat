@@ -22,6 +22,8 @@
 
     $page['listing_user'] = 'mod/listing_user/listing_user.php';
 
+    $page['listing_piece'] = 'mod/listing_piece/listing_piece.php';
+
     $page['login'] = 'mod/login/login.php';
 
     $page['logout'] = 'mod/logout/logout.php';
