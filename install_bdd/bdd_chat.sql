@@ -166,7 +166,7 @@ CREATE TABLE `message` (
 CREATE TABLE `piece` (
   `id` int(11) NOT NULL,
   `message_id` int(11) NOT NULL,
-  `type_ip` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
   `data` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
