@@ -108,15 +108,42 @@ CREATE TABLE `t_user`  (
   `fk_ville` int(11) NULL DEFAULT NULL,
   `fk_pays` int(11) NULL DEFAULT NULL,
   `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `is_connected` tinyint(1) DEFAULT NULL,
+  `fk_role` int(10) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+
 
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
-INSERT INTO `t_user` VALUES (1, 'Christophe', 'christophe.thibault@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Rue des Hauts', '97432', 5, 1, 'img_63ec927e3ae8b.jpg');
-INSERT INTO `t_user` VALUES (2, 'Tao', 't.t@t.com', 'tao', '60784186ea5b29f3f7e16238805ab329', 'Rue des Bas', '97555', 2, 2, NULL);
-INSERT INTO `t_user` VALUES (3, 'Marina', 'm.m@m.com', 'marina', 'parian_password', 'Rue du Centre', '97521', 5, 2, NULL);
+INSERT INTO `t_user` VALUES(1, 'Christophe', 'christophe.thibault@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Rue des Hauts', '97432', 5, 1, 'img_63ec927e3ae8b.jpg', 0, 0);
+INSERT INTO `t_user` VALUES(2, 'Tao', 't.t@t.com', 'tao', '60784186ea5b29f3f7e16238805ab329', 'Rue des Bas', '97555', 2, 2, NULL, 0, 0);
+INSERT INTO `t_user` VALUES(3, 'Marina', 'm.m@m.com', 'marina', 'parian_password', 'Rue du Centre', '97521', 5, 2, NULL, 0, 0);
+INSERT INTO `t_user` VALUES(24, 'bot', 'bot', 'bot', 'fabcaa97871555b68aa095335975e613', NULL, NULL, NULL, NULL, NULL, 0, 0);
+INSERT INTO `t_user` VALUES(25, 'bot2', 'bot2', 'bot2', '9e57f94970f6c4caa792c90959f5668c', NULL, NULL, NULL, NULL, NULL, 0, 0);
+INSERT INTO `t_user` VALUES(26, 'a', 'a', 'a', '0cc175b9c0f1b6a831c399e269772661', NULL, NULL, NULL, NULL, NULL, 0, 0);
+INSERT INTO `t_user` VALUES(27, 'z', 'z', 'z', 'fbade9e36a3f36d3d676c1b808451dd7', NULL, NULL, NULL, NULL, NULL, 0, 0);
+INSERT INTO `t_user` VALUES(28, 'e', 'e', 'e', 'e1671797c52e15f763380b45e841ec32', NULL, NULL, NULL, NULL, NULL, 0, 0);
+COMMIT;
+
+--
+-- Structure de la table `t_role`
+--
+
+DROP TABLE IF EXISTS `t_role`;
+CREATE TABLE IF NOT EXISTS `t_role` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `role` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of t_role
+-- ----------------------------
+INSERT INTO `t_role` VALUES(0, 'visiteur');
+INSERT INTO `t_role` VALUES(1, 'admin');
+
 
 -- ----------------------------
 -- Table structure for t_ville
@@ -166,7 +193,7 @@ CREATE TABLE `message` (
 CREATE TABLE `piece` (
   `id` int(11) NOT NULL,
   `message_id` int(11) NOT NULL,
-  `type_ip` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
   `data` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
