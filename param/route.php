@@ -5,5 +5,6 @@
     $page['home'] = 'mod/home/home.php';
     $page['mosaic'] = 'mod/mosaic/mosaic.php';
     $page['chat'] = 'mod/chat/chat.php';
+    $page['chat_send'] = 'mod/chat/chat_ajax.php';
 
 ?>
